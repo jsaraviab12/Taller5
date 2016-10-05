@@ -5,6 +5,11 @@
  */
 package interfac;
 
+import classes.Helper;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jesus
@@ -87,10 +92,11 @@ public class Principal extends javax.swing.JFrame {
 
         cmbOperaciones.setBackground(new java.awt.Color(51, 51, 51));
         cmbOperaciones.setForeground(new java.awt.Color(255, 255, 0));
-        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagonal Segundaria", "Triangualar Superior", "Triangular Inferior\t", "Transpuesta a la ingresada", "Letra A", "Letra Z", "Letra T", "Letra V", "Letra E", "Letra F", "Letra P", "Letra I", "Letra N", "Letra Y", "Letra X" }));
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Letra B", "Letra K", "Letra M", "Letra W", "Letra Q", "Letra J", "Letra G", "Letra R" }));
         jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 160, -1));
 
         tblTablaInicial.setBackground(new java.awt.Color(51, 51, 51));
+        tblTablaInicial.setForeground(new java.awt.Color(153, 153, 0));
         tblTablaInicial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -103,7 +109,8 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 400, 180));
 
-        tblTablaResultado.setBackground(new java.awt.Color(153, 153, 153));
+        tblTablaResultado.setBackground(new java.awt.Color(102, 102, 102));
+        tblTablaResultado.setForeground(new java.awt.Color(204, 204, 0));
         tblTablaResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -122,7 +129,7 @@ public class Principal extends javax.swing.JFrame {
 
         cmdCrear.setBackground(new java.awt.Color(153, 153, 153));
         cmdCrear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cmdCrear.setForeground(new java.awt.Color(0, 204, 0));
+        cmdCrear.setForeground(new java.awt.Color(255, 255, 0));
         cmdCrear.setText("Crear");
         cmdCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,14 +184,15 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1190, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1198, 757));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNfilas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNfilas1KeyTyped
@@ -290,135 +298,23 @@ public class Principal extends javax.swing.JFrame {
         } else {
             switch (op) {
 
-                case 0:
-                if (nf != nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
-                } else {
-                    Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 1:
-                if (nf != nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
+                case 0://letra B
 
-                } else {
-                    Helper.triangularSuperior(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 2:
-                if (nf != nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
-                } else {
-                    Helper.triangularInferior(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 3:
-                if (nf != nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser iguales", 3);
-                } else {
-                    Helper.transpuesta(tblTablaInicial, tblTablaResultado);
-                }
-
-                break;
-                case 4:
-                if (nf == nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                } else {
                     Helper.letraA(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 5:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                } else if (nf % 2 == 0) {
-                    Helper.letraZ(tblTablaInicial, tblTablaResultado);
 
-                } else {
-                    Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser pares", 3);
-                }
-                break;
+                    break;
+                case 1: //Letra k
+                    Helper.letraK(tblTablaInicial, tblTablaResultado);
 
-                case 6:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                }else if(nc %2 == 0){
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas debe ser impar", op);
-                }else{
-                    Helper.letraT(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 7:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                } else if ((nc % 2) == 0) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas debe ser impar", 3);
-                } else {
-                    Helper.letraV(tblTablaInicial, tblTablaResultado);
-                }
-                break;
+                    break;
 
-                case 8:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                } else {
-                    Helper.letraE(tblTablaInicial, tblTablaResultado);
-                }
-                break;
+                case 2: //Letra m
 
-                case 9:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                } else {
-                    Helper.letraF(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 10:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                } else {
-                    Helper.letraP(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 11:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                } else if ((nc % 2) == 0) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas debe ser impar", 3);
-                } else {
-                    Helper.letraI(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 12:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                }else if(nc%2 == 0 && nf %2 ==0){
-                    Helper.mensaje(this,"Para esta operacion el numero de columnas y filas no pueden ser par al tiempo",3);
-                } else {
-                    Helper.letraN(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 13:
-                if (nc == nf) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                }else if(nc %2 == 0 && nf != 0 ){
-                    Helper.mensaje(this, "Para esta operacio el numero de columnas debe ser impar y el de filas par", 3);
-                } else {
-                    Helper.letraY(tblTablaInicial, tblTablaResultado);
-                }
-                break;
-                case 14:
-                if (nf == nc) {
-                    Helper.mensaje(this, "Para esta operacion el numero de columnas y filas deben ser diferentes,", 3);
-                }else if(nc%2 ==0 && nf%2==0){
-                    Helper.mensaje(this,"Para esta operacio el numero de columnas y filas no deben ser par al mismo tiempo",3);
-                }else if (nc%2 !=0 && nf%2!=0){
-                    Helper.mensaje(this,"Para esta operacio el numero de columnas y filas no deben ser impar al mismo tiempo",3);
+                    Helper.letraM(tblTablaInicial, tblTablaResultado);
 
-                } else {
-                    Helper.letraX(tblTablaInicial, tblTablaResultado);
-                }
-
-                break;
+                    break;
+                case 3: // letra W
+                    Helper.letraW(tblTablaInicial, tblTablaResultado);
             }
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
