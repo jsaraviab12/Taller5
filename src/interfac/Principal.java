@@ -315,6 +315,19 @@ public class Principal extends javax.swing.JFrame {
                     break;
                 case 3: // letra W
                     Helper.letraW(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 4: // letra Q
+                   Helper.letraQ(tblTablaInicial, tblTablaResultado);
+                   break;
+                case 5: // lertra J
+                 Helper.letraJ(tblTablaInicial, tblTablaResultado);
+                 break;
+                  case 6: // lertra G
+                 Helper.letraG(tblTablaInicial, tblTablaResultado);
+                 break;
+                  case 7: // lertra R
+                 Helper.letraR(tblTablaInicial, tblTablaResultado);
+                 break;
             }
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
