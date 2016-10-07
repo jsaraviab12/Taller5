@@ -92,7 +92,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 230, 100));
 
-        jLabel1.setFont(new java.awt.Font("Aaargh", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 39)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Operaciones Matrices");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
@@ -313,7 +313,9 @@ public class Principal extends javax.swing.JFrame {
                     }
                     break;
                 case 1: //Letra k
-
+                    if (nf % 2 != 0) {
+                        Helper.mensaje(this, "Para esta operacion los numero de  filas no puede ser par", 3);
+                    }
                     Helper.letraK(tblTablaInicial, tblTablaResultado);
 
                     break;
@@ -353,26 +355,54 @@ public class Principal extends javax.swing.JFrame {
                     }
                     break;
                 case 6: // lertra G
-                    if(nc%2== 0 && nf%2==0){
-                     Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser pares", 3);   
-                    }else{
-                    Helper.letraG(tblTablaInicial, tblTablaResultado);
-                    }   
+                    if (nc % 2 == 0 && nf % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser pares", 3);
+                    } else {
+                        Helper.letraG(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 7: // lertra R
-                    Helper.letraR(tblTablaInicial, tblTablaResultado);
+                    if (nc != nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser diferente al numero de columnas", 3);
+                    } else if (nc % 2 == 0 && nf % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser pares", 3);
+                    } else {
+                        Helper.letraR(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 8://figura 1
-                    Helper.F1(tblTablaInicial, tblTablaResultado);
+                    if (nc != nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser diferente al numero de columnas", 3);
+                    } else if (nc % 2 == 0 && nf % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser pares", 3);
+                    } else {
+                        Helper.F1(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 9://figura 2
-                    Helper.F2(tblTablaInicial, tblTablaResultado);
+                    if (nc != nf) {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser diferente al numero de columnas", 3);
+                    } else if (nc % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion los numero de  columnas no puede ser par", 3);
+                    } else {
+                        Helper.F2(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 10://figura 3
-                    Helper.F3(tblTablaInicial, tblTablaResultado);
+                    if (nc % 2 != 0) {
+                        Helper.mensaje(this, "Para esta operacion los numero de  columnas no puede ser impar", 3);
+                    } else {
+                        Helper.F3(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 11://figura 4
-                    Helper.F4(tblTablaInicial, tblTablaResultado);
+                    if (nf != nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser diferente al numero de columnas", 3);
+                    } else if (nf % 2 == 0 && nc % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser pares", 3);
+                    } else {
+                        Helper.F4(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
             }
         }
