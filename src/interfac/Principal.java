@@ -21,6 +21,13 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        initComponents();
+        JButton botonesD[] = {cmdManual, cmdAutomatic, cmdOperacion};
+        JButton botonesH[] = {cmdCrear, cmdLimpiar};
+
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+
     }
 
     /**
@@ -85,14 +92,14 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 230, 100));
 
-        jLabel1.setFont(new java.awt.Font("Yu Mincho", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Aaargh", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Operaciones Matrices");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 
         cmbOperaciones.setBackground(new java.awt.Color(51, 51, 51));
         cmbOperaciones.setForeground(new java.awt.Color(255, 255, 0));
-        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Letra B", "Letra K", "Letra M", "Letra W", "Letra Q", "Letra J", "Letra G", "Letra R" }));
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Letra B", "Letra K", "Letra M", "Letra W", "Letra Q", "Letra J", "Letra G", "Letra R", "Figura 1", "Figura 2", "Figura 3", "Figura 4" }));
         jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 160, -1));
 
         tblTablaInicial.setBackground(new java.awt.Color(51, 51, 51));
@@ -107,7 +114,7 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblTablaInicial);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 400, 180));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 400, 260));
 
         tblTablaResultado.setBackground(new java.awt.Color(102, 102, 102));
         tblTablaResultado.setForeground(new java.awt.Color(204, 204, 0));
@@ -121,7 +128,7 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTablaResultado);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 410, 180));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 410, 260));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos iniciales ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 0))); // NOI18N
@@ -299,35 +306,74 @@ public class Principal extends javax.swing.JFrame {
             switch (op) {
 
                 case 0://letra B
-
-                    Helper.letraA(tblTablaInicial, tblTablaResultado);
-
+                    if (nf % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser par", 3);
+                    } else {
+                        Helper.letraB(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 1: //Letra k
+
                     Helper.letraK(tblTablaInicial, tblTablaResultado);
 
                     break;
 
                 case 2: //Letra m
-
-                    Helper.letraM(tblTablaInicial, tblTablaResultado);
-
+                    if (nf != nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser diferente al numero de columnas", 3);
+                    } else if (nf % 2 == 0 && nc % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser pares", 3);
+                    } else {
+                        Helper.letraM(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 3: // letra W
-                    Helper.letraW(tblTablaInicial, tblTablaResultado);
+                    if (nf != nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser diferente al numero de columnas", 3);
+                    } else if (nf % 2 == 0 && nc % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser pares", 3);
+                    } else {
+                        Helper.letraW(tblTablaInicial, tblTablaResultado);
+                    }
                     break;
                 case 4: // letra Q
-                   Helper.letraQ(tblTablaInicial, tblTablaResultado);
-                   break;
+                    if (nf != nc) {
+                        Helper.mensaje(this, "Para esta operacion el numero de filas no puede ser diferente al numero de columnas", 3);
+                    } else if (nf % 2 != 0 && nc % 2 != 0) {
+                        Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser impares", 3);
+                    } else {
+                        Helper.letraQ(tblTablaInicial, tblTablaResultado);
+                    }
+                    break;
                 case 5: // lertra J
-                 Helper.letraJ(tblTablaInicial, tblTablaResultado);
-                 break;
-                  case 6: // lertra G
-                 Helper.letraG(tblTablaInicial, tblTablaResultado);
-                 break;
-                  case 7: // lertra R
-                 Helper.letraR(tblTablaInicial, tblTablaResultado);
-                 break;
+                    if (nc % 2 == 0) {
+                        Helper.mensaje(this, "Para esta operacion los numero de  columnas no puede ser par", 3);
+                    } else {
+                        Helper.letraJ(tblTablaInicial, tblTablaResultado);
+                    }
+                    break;
+                case 6: // lertra G
+                    if(nc%2== 0 && nf%2==0){
+                     Helper.mensaje(this, "Para esta operacion los numeros de filas y columnas no pueden ser pares", 3);   
+                    }else{
+                    Helper.letraG(tblTablaInicial, tblTablaResultado);
+                    }   
+                    break;
+                case 7: // lertra R
+                    Helper.letraR(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 8://figura 1
+                    Helper.F1(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 9://figura 2
+                    Helper.F2(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 10://figura 3
+                    Helper.F3(tblTablaInicial, tblTablaResultado);
+                    break;
+                case 11://figura 4
+                    Helper.F4(tblTablaInicial, tblTablaResultado);
+                    break;
             }
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
