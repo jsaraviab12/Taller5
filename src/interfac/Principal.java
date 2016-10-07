@@ -316,7 +316,7 @@ public class Principal extends javax.swing.JFrame {
                     break;
                 case 1: //Letra k
                     if (nf % 2 != 0) {
-                        Helper.mensaje(this, "Para esta operacion los numero de  filas no puede ser par", 3);
+                        Helper.mensaje(this, "Para esta operacion los numero de  filas no puede ser impar", 3);
                     }
                     Helper.letraK(tblTablaInicial, tblTablaResultado);
 
