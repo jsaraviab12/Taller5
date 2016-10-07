@@ -46,7 +46,7 @@ public class Principal extends javax.swing.JFrame {
         txtNfilas1 = new javax.swing.JTextField();
         txtNcolumnas1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        cmbOperaciones = new javax.swing.JComboBox<>();
+        cmbOperaciones = new javax.swing.JComboBox<String>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTablaInicial = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -64,7 +64,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos iniciales ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 0))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos iniciales ", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 0))); // NOI18N
         jPanel3.setForeground(new java.awt.Color(204, 204, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -99,7 +99,7 @@ public class Principal extends javax.swing.JFrame {
 
         cmbOperaciones.setBackground(new java.awt.Color(51, 51, 51));
         cmbOperaciones.setForeground(new java.awt.Color(255, 255, 0));
-        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Letra B", "Letra K", "Letra M", "Letra W", "Letra Q", "Letra J", "Letra G", "Letra R", "Figura 1", "Figura 2", "Figura 3", "Figura 4" }));
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Letra B", "Letra K", "Letra M", "Letra W", "Letra Q", "Letra J", "Letra G", "Letra R", "Figura 1", "Figura 2", "Figura 3", "Figura 4" }));
         jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 160, -1));
 
         tblTablaInicial.setBackground(new java.awt.Color(51, 51, 51));
@@ -112,6 +112,7 @@ public class Principal extends javax.swing.JFrame {
 
             }
         ));
+        tblTablaInicial.setEnabled(false);
         jScrollPane2.setViewportView(tblTablaInicial);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 400, 260));
@@ -126,12 +127,13 @@ public class Principal extends javax.swing.JFrame {
 
             }
         ));
+        tblTablaResultado.setEnabled(false);
         jScrollPane1.setViewportView(tblTablaResultado);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 410, 260));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos iniciales ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 0))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos iniciales ", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 0))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdCrear.setBackground(new java.awt.Color(153, 153, 153));
@@ -244,7 +246,7 @@ public class Principal extends javax.swing.JFrame {
             if (nf > 15) {
                 Helper.mensaje(this, "Para una correcta vizualizacion el numero de fila no debe ser mayor de 15", 2);
                 txtNfilas1.requestFocusInWindow();
-            } else if (nc > 15) {
+            } else if (nc > 18) {
                 Helper.mensaje(this, "Para una correcta vizualizacion el numero de columnas no debe ser mayor de 15", 2);
                 txtNcolumnas1.requestFocusInWindow();
             } else {
